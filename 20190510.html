@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <title>协议倒计时示例</title>  
+    <meta charset="UTF-8">
+    <script type="text/javascript">  
+        //用户有十秒钟的时间看协议，超过十秒钟，“同意”按钮将生效  
+        var Seconds = 10;  
+        //计时器ID  
+        var setIntervalID;  
+        function ok() {  
+            var getid = document.getElementById("but");  
+            if (Seconds <= 0) {  
+                getid.value="同意";  
+                getid.disabled = false; //或者写成getid.disabled=""; 启用getid控件。  
+                //停止计时器  
+                clearInterval(setIntervalID);  
+            }  
+            else {  
+                getid.value = "请仔细阅读，还剩下【" + Seconds + "】秒"; 
+            }  
+            Seconds--;  
+        }  
+      setIntervalID=setInterval("ok()", 1000);  
+    </script>  
+</head>  
+<body style="text-align: center;">  
+<textarea style="background-color:#Fcd;" cols="75" rows="50"></textarea><br />  
+<!--disabled="disabled" 默认submit表单是禁用的，也就是只读的，不能点击-->
+<input type="submit" style="color:#f00;font-size:38px;" id ="but" value="同意" disabled="disabled" />  
+</body>  
+</html>
